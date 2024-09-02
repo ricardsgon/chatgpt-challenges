@@ -1,0 +1,1 @@
+/*Crie um programa em C para gerenciar as notas de alunos em uma turma.*/
