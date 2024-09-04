@@ -14,6 +14,7 @@ int main()
     int menu, i;
     aluno struc[50];
     int numaluno = 0;
+    aluno *pointer = struc;
 
     do
     {
@@ -23,20 +24,7 @@ int main()
         switch (menu)
         {
         case 1:
-            printf("Insira a quantidade de alunos: ");
-            scanf("%d", &numaluno);
-            for (i = 0; i < numaluno; i++)
-            {
-                printf("Nome %d: ", i + 1);
-                getchar();
-                fgets(struc[i].nome, sizeof(struc[i].nome), stdin);
-                for (i = 0; i < 4; i++)
-                {
-                    printf("Notas %d: ", i + 1);
-                    scanf("%d", &struc[i].nota[i]);
-                    printf("\n");
-                }
-            }
+            printf("Insira a quantidade de alunos")
             break;
         case 2:
         
