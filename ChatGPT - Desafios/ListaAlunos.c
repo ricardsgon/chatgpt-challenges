@@ -6,31 +6,40 @@
 
 #define ESTUDANTE_MAX 500
 
-typedef struct war
+typedef struct
 {
     char nome[50];
+    int nota[4];
     int media;
-}estudante;
+} estudante;
 
 void addEstudante(estudante student[], int *contador);
-void showEstudante(estudante student[], int *contador);
+void showEstudante(estudante student[], int contador);
+float notaEstudante(estudante student[], int *contador);
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    int menu, contador;
+    int menu;
+    int contador = 0;
     estudante Student[ESTUDANTE_MAX];
-    int *Pointer = &Student[ESTUDANTE_MAX]; 
-    do{
+
+    do
+    {
         printf("SIMULADOR DE SISTEMA ESTUDANTIL\n1 - Adicionar Aluno\n2 - Listar alunos\n3 - Sair\n");
         printf("--> ");
         scanf("%d", &menu);
-        switch(menu){
-            case 1: 
-                addEstudante(*Pointer, contador);
-                break;
+        getchar();
+        switch (menu)
+        {
+        case 1:
+            addEstudante(Student, &contador);
+            break;
+        case 2:
+            showEstudante(Student, contador);
+            break;
         }
-    }while (menu != 3);
+    } while (menu != 3);
 }
 
 void addEstudante(estudante student[], int *contador)
@@ -38,24 +47,44 @@ void addEstudante(estudante student[], int *contador)
     if (*contador <= ESTUDANTE_MAX)
     {
         printf("Digite o nome do aluno: ");
-        scanf("%s", &student[*contador].nome);
-        printf("Digite a média do aluno: ");
-        scanf("%d", &student[*contador].media);
-        printf("\n");
-        printf("Aluno adicionado com sucesso.\n");
-        *contador++;
+        fgets(student[*contador].nome, sizeof(student[*contador].nome), stdin);
+        for (int i = 0; i < 4; i++)
+        {
+            printf("Digite a nota %d: ", i + 1);
+            scanf("%d", &student[*contador].nota[i]);
+            getchar();
+        }
+        printf("Aluno adicionado com sucesso.\n\n");
+        (*contador)++;
     }
     else
     {
-        printf("Limite de alunos atingido.");
+        printf("Limite de alunos atingido.\n\n");
     }
 }
 
-void showEstudante(estudante student[], int *contador)
+void showEstudante(estudante student[], int contador)
 {
+    float med = notaEstudante(student, &contador);
+    if (contador == 0)
+    {
+        printf("Nenhum aluno no sistema.\n\n");
+    }
+    for (int i = 0; i < contador; i++)
+    {
+        printf("Nome do aluno %d: %s\n", i + 1, student[i].nome);
+        printf("As notas do aluno são: (%d, %d, %d, %d)\n", student[i].nota[0], student[i].nota[1], student[i].nota[2], student[i].nota[3]);
+        printf("A média do aluno é: %.2f\n", med);
+        printf("\n");
+    }
+}
+
+float notaEstudante(estudante student[], int *contador)
+{
+    float soma = 0;
     for (int i = 0; i < *contador; i++)
     {
-        printf("Nome do aluno %d: %s\n", i + 1, student[*contador].nome);
-        printf("Média do aluno %d: %s\n", i + 1, student[*contador].media);
+        soma += student[i].nota[i];
     }
+    return soma / 4;
 }
