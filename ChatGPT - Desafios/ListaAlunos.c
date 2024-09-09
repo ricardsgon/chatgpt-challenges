@@ -92,8 +92,8 @@ void showEstudante(estudante student[], int contador, int contadorPresenca, int 
         printf("\n");
     }
     printf("Existem %d alunos no sistema.\n", contador);
-    printf("Quantidade de presenças totais: %d\n", contadorPresenca);
-    printf("Quantidade de faltas totais: %d\n\n", contadorFalta);
+    printf("Quantidade de presenças totais no sistema: %d\n", contadorPresenca);
+    printf("Quantidade de faltas totais no sistema: %d\n\n", contadorFalta);
 }
 
 void removeEstudante(estudante student[], int *contador)
