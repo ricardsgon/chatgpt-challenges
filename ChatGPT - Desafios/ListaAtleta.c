@@ -48,7 +48,7 @@ int main()
 }
 void addAtleta(Atleta Track[], int *contador, int *contadorA, int *contadorB)
 {
-    if (*contador <= ATLETA_MAX)
+    if (*contador < ATLETA_MAX)
     {
         printf("\n");
         printf("Insira o nome do Atleta: ");
