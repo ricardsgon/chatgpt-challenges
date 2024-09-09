@@ -48,7 +48,7 @@ int main()
 
 void addEstudante(estudante student[], int *contador)
 {
-    if (*contador <= ESTUDANTE_MAX)
+    if (*contador < ESTUDANTE_MAX)
     {
         printf("Digite o nome do aluno: ");
         fgets(student[*contador].nome, sizeof(student[*contador].nome), stdin);
