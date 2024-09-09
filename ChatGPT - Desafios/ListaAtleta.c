@@ -15,11 +15,11 @@ typedef struct
 
 void addAtleta(Atleta Track[], int *contador, int *contadorA, int *contadorB);
 void listAtleta(Atleta Track[], int contador, int contadorA, int contadorB);
-void removerAtleta(Atleta Track[], int *contador, int ID);
+void removerAtleta(Atleta Track[], int *contador);
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    int menu, ID;
+    int menu;
     int contador = 0;
     int contadorA = 0;
     int contadorB = 0;
@@ -40,9 +40,8 @@ int main()
             listAtleta(Atletas, contador, contadorA, contadorB);
             break;
         case 3:
-            printf("Insira o ID do Atleta para ser removido: ");
-            scanf("%d", &ID);
-            removerAtleta(Atletas, &contador, ID);
+            removerAtleta(Atletas, &contador);
+            break;
         }
     } while (menu != 4);
     return 0;
@@ -93,8 +92,10 @@ void listAtleta(Atleta Track[], int contador, int contadorA, int contadorB)
     printf("Atletas na categoria A: %d\n", contadorA);
     printf("Atletas na categoria B: %d\n\n", contadorB);
 }
-void removerAtleta(Atleta Track[], int *contador, int ID)
+void removerAtleta(Atleta Track[], int *contador)
 {
+    printf("Insira o ID do Atleta para ser removido: ");
+    scanf("%d", &ID);
     for (int i = 0; i < *contador; i++)
     {
         if (ID == *contador)
