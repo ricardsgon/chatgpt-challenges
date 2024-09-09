@@ -94,6 +94,7 @@ void listAtleta(Atleta Track[], int contador, int contadorA, int contadorB)
 }
 void removerAtleta(Atleta Track[], int *contador)
 {
+    int ID;
     printf("Insira o ID do Atleta para ser removido: ");
     scanf("%d", &ID);
     for (int i = 0; i < *contador; i++)
