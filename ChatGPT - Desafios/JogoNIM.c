@@ -7,16 +7,16 @@ int main()
 {
     setlocale(LC_ALL, "Portuguese");
 
-    int p, player1_escolha, player2_escolha, i;
+    int p, player1_escolha, player2_escolha, menu;
     char player1[20];
     char player2[20];
     do
     {
         printf("1 - Mudar Informações do Jogo.\n2 - Iniciar uma partida.\n3 - Sair\n");
         printf("--> ");
-        scanf("%d", &i);
+        scanf("%d", &menu);
         printf("\n");
-        switch (i)
+        switch (menu)
         {
         case 1:
             printf("Insira o número de peças: ");
