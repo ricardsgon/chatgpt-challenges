@@ -70,5 +70,5 @@ int main()
                 }
             }
         }
-    } while (i != 3);
+    } while (menu != 3);
 }
