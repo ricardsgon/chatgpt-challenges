@@ -81,6 +81,7 @@ void showEstudante(estudante student[], int contador)
         printf("A média do aluno é: %.2f\n", student[i].media);
         printf("\n");
     }
+    printf("Existem %d alunos no sistema.", contador);
 }
 
 void removeEstudante(estudante student[], int *contador, int ID)
