@@ -66,7 +66,7 @@ void showCamera(camera add[], int contador)
 {
     if (contador == 0)
     {
-        printf("Nenhuma câmera no sistema");
+        printf("Nenhuma câmera no sistema.\n");
     }
     else
     {
@@ -99,13 +99,18 @@ void showCamera(camera add[], int contador)
 void configCamera(camera add[], int *contador)
 {
     int menu, id;
+    if(*contador == 0){
+        printf("Nenhuma câmera no Sistema.\n");
+        return;
+    }else{
     printf("Digite o número da câmera que vai ser modificada: ");
     scanf("%d", &id);
     printf("\n");
+    }
     if (id >= *contador)
     {
-        printf("Câmera não encontrada no sistema.");
-    }
+        printf("Câmera não encontrada no sistema.\n");
+    }else{
     do
     {
         printf("\n");
@@ -141,4 +146,5 @@ void configCamera(camera add[], int *contador)
             return;
         }
     } while (menu != 6);
+    }
 }
