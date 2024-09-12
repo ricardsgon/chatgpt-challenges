@@ -52,7 +52,8 @@ void config(int *x, int *y, int *z, int *g)
     printf("\n");
 }
 
-void criar(int x, int y, int z, int g){
+void criar(int x, int y, int z, int g)
+{
     srand(time(NULL));
 
     char senha[MAX_SENHA];
@@ -61,20 +62,25 @@ void criar(int x, int y, int z, int g){
     char simb[] = "@#$^&*()-_=+[]{}|;:',.<>?/";
     char caracteres[MAX_SENHA] = "";
 
-    if(x == 1){
+    if (x == 1)
+    {
         strcat(caracteres, alfabeto);
     }
-    if(y == 1){
+    if (y == 1)
+    {
         strcat(caracteres, num);
     }
-    if(z == 1){
+    if (z == 1)
+    {
         strcat(caracteres, simb);
     }
-    else{
+    else
+    {
         printf("Configuração não inicializada, favor retornar ao menu.\n");
         return;
     }
-    for(int i = 0; i < g; i++){
+    for (int i = 0; i < g; i++)
+    {
         senha[i] = caracteres[rand() % strlen(caracteres)];
     }
     senha[g] = '\0';
