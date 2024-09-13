@@ -85,7 +85,7 @@ void listAtleta(Atleta Track[], int contador, int contadorA, int contadorB)
     {
         printf("Nome do Atleta(ID: %d): %s", i + 1, Track[i].nome);
         printf("Altura e peso: %.1fcm %.1fkg\n", Track[i].altura, Track[i].peso);
-        printf("Categoria: %c", Track[i].categoria);
+        printf("Categoria: %c\n", Track[i].categoria);
         printf("\n");
     }
     printf("\n");
@@ -99,7 +99,7 @@ void removerAtleta(Atleta Track[], int *contador)
     scanf("%d", &ID);
     for (int i = 0; i < *contador; i++)
     {
-        if (ID == *contador)
+        if (ID <= *contador)
         {
             for (int j = i; j < *contador - 1; j++)
             {
@@ -108,7 +108,7 @@ void removerAtleta(Atleta Track[], int *contador)
         }
         else
         {
-            printf("Atleta não encontrado.");
+            printf("Atleta não encontrado.\n");
         }
         (*contador)--;
     }
