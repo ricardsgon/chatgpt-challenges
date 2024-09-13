@@ -15,7 +15,7 @@ typedef struct
 
 void addAtleta(Atleta Track[], int *contador, int *contadorA, int *contadorB);
 void listAtleta(Atleta Track[], int contador, int contadorA, int contadorB);
-void removerAtleta(Atleta Track[], int *contador);
+void removerAtleta(Atleta Track[], int *contador,  int *contadorA, int *contadorB);
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
@@ -40,7 +40,7 @@ int main()
             listAtleta(Atletas, contador, contadorA, contadorB);
             break;
         case 3:
-            removerAtleta(Atletas, &contador);
+            removerAtleta(Atletas, &contador, &contadorA, &contadorB);
             break;
         }
     } while (menu != 4);
@@ -83,7 +83,7 @@ void listAtleta(Atleta Track[], int contador, int contadorA, int contadorB)
     }
     for (int i = 0; i < contador; i++)
     {
-        printf("Nome do Atleta(ID: %d): %s", i + 1, Track[i].nome);
+        printf("Nome do Atleta(ID: %d): %s", i, Track[i].nome);
         printf("Altura e peso: %.1fcm %.1fkg\n", Track[i].altura, Track[i].peso);
         printf("Categoria: %c\n", Track[i].categoria);
         printf("\n");
@@ -92,7 +92,7 @@ void listAtleta(Atleta Track[], int contador, int contadorA, int contadorB)
     printf("Atletas na categoria A: %d\n", contadorA);
     printf("Atletas na categoria B: %d\n\n", contadorB);
 }
-void removerAtleta(Atleta Track[], int *contador)
+void removerAtleta(Atleta Track[], int *contador, int *contadorA, int *contadorB)
 {
     int ID;
     printf("Insira o ID do Atleta para ser removido: ");
@@ -101,7 +101,7 @@ void removerAtleta(Atleta Track[], int *contador)
     {
         if (ID <= *contador)
         {
-            for (int j = i; j < *contador - 1; j++)
+            for (int j = ID; j < *contador - 1; j++)
             {
                 Track[j] = Track[j + 1];
             }
@@ -111,5 +111,13 @@ void removerAtleta(Atleta Track[], int *contador)
             printf("Atleta não encontrado.\n");
         }
         (*contador)--;
+        if (Track[ID].categoria == 'A')
+        {
+            (*contadorA)--;
+        }
+        else
+        {
+            (*contadorB)--;
+        }
     }
 }
