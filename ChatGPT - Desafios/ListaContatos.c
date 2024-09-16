@@ -77,7 +77,8 @@ void editCtt(Contato contato[], int *contador)
 {
     int ID;
     printf("\n");
-    printf("Insira o ID do contato que será editado: ");
-    scanf("%d", ID);
-    printf("1 -")
+    do
+    {
+        printf("1 - Mudar Tudo\n2 - Mudar algo em específico\n3 - Excluir Contato\n4 - Sair\n");
+    }while (menu != 4)
 }
