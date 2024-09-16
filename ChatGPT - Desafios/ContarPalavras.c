@@ -28,6 +28,6 @@ int main()
         }
     }
 
-    printf("Tamanho da frase: %d", contador);
+    printf("Tamanho da frase: %d\n", contador);
     return 0;
 }

@@ -29,11 +29,12 @@ int main()
         switch (opc)
         {
         case 0:
-            for(int i = 0; i <= 1; i++){
-            printf("Insira o valor real para Z%d(a): ", i+1);
-            scanf("%d", &num[i].real);
-            printf("Insira o valor imaginário para Z%d(bi): ", i+1);
-            scanf("%d", &num[i].imaginario);
+            for (int i = 0; i <= 1; i++)
+            {
+                printf("Insira o valor real para Z%d(a): ", i + 1);
+                scanf("%d", &num[i].real);
+                printf("Insira o valor imaginário para Z%d(bi): ", i + 1);
+                scanf("%d", &num[i].imaginario);
             }
             printf("\n");
             break;
@@ -78,18 +79,18 @@ numimagreal subtracao(numimagreal p1, numimagreal p2)
 numimagreal multiplicacao(numimagreal p1, numimagreal p2)
 {
     numimagreal resultado;
-    resultado.real = (p1.real * p2.real) + abs(p1.imaginario * p2.imaginario);
+    resultado.real = (p1.real * p2.real) - (p1.imaginario * p2.imaginario);
     resultado.imaginario = (p1.imaginario * p2.real) + (p1.real * p2.imaginario);
     return resultado;
 }
 numimagreal divisao(numimagreal p1, numimagreal p2)
 {
     numimagreal resultado;
-    int water = 2;
-    int divs = pow(p2.real, water) + pow(p2.imaginario, water);
-    resultado.real = (p1.real * p2.real) + abs(p1.imaginario * p2.imaginario);
-    resultado.real /= divs;
+    int potencia = 2;
+    int divisor = pow(p2.real, potencia) + pow(p2.imaginario, potencia);
+    resultado.real = (p1.real * p2.real) + (p1.imaginario * p2.imaginario);
+    resultado.real /= divisor;
     resultado.imaginario = (p1.imaginario * p2.real) - (p1.real * p2.imaginario);
-    resultado.imaginario /= divs;
+    resultado.imaginario /= divisor;
     return resultado;
 }

@@ -1,4 +1,5 @@
 /*Crie uma calculadora em C*/
+
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
@@ -19,58 +20,66 @@ int main()
 
     do
     {
-        printf("Escolha dois números: ");
-        scanf("%d %d", &num1, &num2);
-        printf("\n");
-        printf("1 - Somar\n2 - Subtrair\n3 - Multiplicar\n4 - Dividir\n5 - Sair\n");
+        //Menu
+        printf("CALCULADORA\n\n1 - Somar\n2 - Subtrair\n3 - Multiplicar\n4 - Dividir\n5 - Sair\n");
         printf("--> ");
         scanf("%d", &menu);
         switch (menu)
         {
         case 1:
+            printf("Escolha dois números: ");
+            scanf("%d %d", &num1, &num2);
             int somas = soma(num1, num2);
-            printf("Seu resultado vai ser: %d\n", somas);
+            printf("Seu resultado vai ser: %d\n\n", somas);
             break;
         case 2:
+            printf("Escolha dois números: ");
+            scanf("%d %d", &num1, &num2);
             int subs = sub(num1, num2);
-            printf("Seu resultado vai ser: %d\n", subs);
+            printf("Seu resultado vai ser: %d\n\n", subs);
             break;
         case 3:
+            printf("Escolha dois números: ");
+            scanf("%d %d", &num1, &num2);
             int mults = mult(num1, num2);
-            printf("Seu resultado vai ser: %d\n", mults);
+            printf("Seu resultado vai ser: %d\n\n", mults);
             break;
         case 4:
-            if(num2 == 0){
-                printf("Dividendo inválido.\n");
-                break;
+            printf("Escolha dois números: ");
+            scanf("%d %d", &num1, &num2);
+            while (num2 == 0)
+            {
+                printf("Divisão por zero não permitida. Digite o divisor novamente: ");
+                scanf("%d", &num2);
             }
             float div = divs(num1, num2);
-            printf("Seu resultado vai ser: %.2f\n", div);
+            printf("Seu resultado vai ser: %.2f\n\n", div);
             break;
         }
-    } while (menu < 5);
+    } while (menu != 5);
     return 0;
 }
 
-//Função Divisão.
+// Função Divisão.
 float divs(float x, float y)
 {
-     return x / y;
+    return x / y;
 }
 
-//Função Soma.
+// Função Soma.
 int soma(int x, int y)
 {
     return x + y;
 }
 
-//Função Subtração.
+// Função Subtração.
 int sub(int x, int y)
 {
     return x - y;
 }
 
-//Função Multiplicação
-int mult(int x, int y){
+// Função Multiplicação
+int mult(int x, int y)
+{
     return x * y;
 }

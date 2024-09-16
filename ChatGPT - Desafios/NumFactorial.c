@@ -8,7 +8,7 @@ int main()
     int numero;
     printf("Insira seu número: ");
     scanf("%d", &numero);
-    printf("Seu fatorial vai ser: %llu", calc(numero));
+    printf("Seu fatorial vai ser: %llu\n", calc(numero));
 }
 
 unsigned long long calc(int x)
