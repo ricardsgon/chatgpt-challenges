@@ -75,9 +75,23 @@ void listCtt(Contato contato[], int contador)
 
 void editCtt(Contato contato[], int *contador)
 {
-    int ID;
+    int ID, menu;
     printf("\n");
     printf("Insira o ID do contato que será editado: ");
     scanf("%d", ID);
-    printf("1 -")
+    do{
+    printf("1 - Mudar Nome\n2 - Mudar Telefone\n3 - Mudar Endereço\n4 - Mudar E-Mail\n5 - Sair\n");
+    scanf("%d", &menu);
+    getchar();
+    switch(menu){
+        case 1: 
+            printf("Nome antigo: %s\n", contato[ID].nome);
+            printf("Novo Nome: ");
+            fgets(contato[ID].nome, sizeof(contato[ID].nome), stdin);
+            printf("Nome alterado com sucesso.");
+            break;
+        case 2:
+            printf("")
+    }
+    }while(menu != 5)
 }
