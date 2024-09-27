@@ -1,3 +1,5 @@
+/*Escreva um programa em C++ que funcione como uma calculadora simples. Ele deve permitir ao usuário realizar operações básicas como adição, subtração, multiplicação e divisão.*/
+
 #include <iostream>
 using namespace std;
 
